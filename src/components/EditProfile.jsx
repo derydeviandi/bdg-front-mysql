@@ -11,7 +11,7 @@ export class EditProfile extends Component {
 
 
     componentDidMount() {
-        axios.get(`/users/${this.props._id}`)
+        axios.get(`/users/profile/${this.props.username}`)
             .then(res => {
                 this.setState({ profile: res.data })
             }).catch(err => {
@@ -49,7 +49,7 @@ export class EditProfile extends Component {
 
     render() {
         if (!isNull(this.state.profile)) {
-            let { name, email, age } = this.state.profile.user
+            let { name, email } = this.state.profile
             return (
                 <div className='container'>
                     <form className="form-group">
@@ -61,16 +61,18 @@ export class EditProfile extends Component {
                         <h3>Email</h3>
                         <input ref={(input) => this.email = input} className="form-control" type="email" defaultValue={email} />
 
-                        <h3>Age</h3>
-                        <input ref={(input) => this.age = input} className="form-control" type="text" defaultValue={age} />
-
                         <h3>Password</h3>
                         <input ref={(input) => this.password = input} className="form-control" type="password" />
 
-                        <div className="custom-file mt-4">
-                            <input ref={(input) => this.avatar = input} id="customFileLang" className="custom-file-input" type="file" />
-                            <label className="custom-file-label" htmlFor="customFileLang">Please insert file</label>
+
+                        <div class="form-group mt-4">
+                            <input ref={(input) => this.avatar = input} type="file" class="form-control-file" id="exampleFormControlFile1" />
                         </div>
+
+                        {/* <div className="custom-file mt-4">
+                            <input ref={(input) => this.avatar = input} id="customFileLang"  className="custom-file-input" type="file"/>
+                            <label className="custom-file-label" htmlFor="customFileLang">Please insert file</label>
+                        </div> */}
 
                     </form>
                     <button onClick={this.updateProfile} className="mt-5 btn-block btn btn-outline-primary">Save</button>
@@ -84,7 +86,8 @@ export class EditProfile extends Component {
 
 const mapStateToProps = state => {
     return {
-        _id: state.auth._id
+        username: state.auth.username,
+        id: state.auth.id
     }
 }
 

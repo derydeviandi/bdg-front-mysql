@@ -1,11 +1,11 @@
 // ACTION CREATORS
 
-export const sendData = (username, _id) => {
-    
+export const sendData = (username, id) => {
+
     return {
         type: "LOGIN_SUCCESS",
         payload: {
-            username, _id
+            username, id
         }
     }
 
@@ -26,7 +26,7 @@ export const keepLogin = (user) => {
     return {
         type: "LOGIN_SUCCESS",
         payload: {
-            _id: user._id,
+            id: user.id,
             username: user.username
         }
     }
