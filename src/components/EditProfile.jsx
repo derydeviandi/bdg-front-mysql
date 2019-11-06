@@ -32,8 +32,8 @@ export class EditProfile extends Component {
         // Kita menggunakan form data, karena akan mengirim sebuah file
         formData.append("name", _name)
         formData.append("email", _email)
-        formData.append("password", _password)
-        formData.append("avatar", _avatar)
+        if (_password) formData.append("password", _password)
+        if (_avatar) formData.append("avatar", _avatar)
 
         axios.patch(`/users/${this.props.username}`, formData)
             .then(res => {
