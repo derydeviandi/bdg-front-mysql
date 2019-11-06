@@ -1,0 +1,54 @@
+{
+  "users": [
+    {
+      "username": "rochafi",
+      "email": "rochafi@gmail.com",
+      "password": "qwe",
+      "id": 1
+    }
+  ],
+  "products": [
+    {
+      "name": "Product One",
+      "desc": "Lorem ipsum dolor, sit amet consectetur adipisicing.",
+      "price": 29999,
+      "picture": "https://www.pngfind.com/pngs/m/162-1621689_cloud9-lcs-jersey-cloud-9-csgo-jersey-hd.png",
+      "id": 1
+    },
+    {
+      "name": "Product Two",
+      "desc": "Lorem ipsum dolor, sit amet consectetur adipisicing.",
+      "price": 57000,
+      "picture": "https://www.pngfind.com/pngs/m/162-1621689_cloud9-lcs-jersey-cloud-9-csgo-jersey-hd.png",
+      "id": 2
+    },
+    {
+      "name": "Product Three",
+      "desc": "Lorem ipsum dolor, sit amet consectetur adipisicing.",
+      "price": 57000,
+      "picture": "https://www.pngfind.com/pngs/m/162-1621689_cloud9-lcs-jersey-cloud-9-csgo-jersey-hd.png",
+      "id": 3
+    },
+    {
+      "name": "Product Four",
+      "desc": "Lorem ipsum dolor, sit amet consectetur adipisicing.",
+      "price": 119000,
+      "picture": "https://www.pngfind.com/pngs/m/162-1621689_cloud9-lcs-jersey-cloud-9-csgo-jersey-hd.png",
+      "id": 4
+    },
+    {
+      "name": "Product Five",
+      "desc": "Lorem ipsum dolor, sit amet consectetur adipisicing.",
+      "price": 185000,
+      "picture": "https://www.pngfind.com/pngs/m/162-1621689_cloud9-lcs-jersey-cloud-9-csgo-jersey-hd.png",
+      "id": 5
+    },
+    {
+      "name": "Product Six",
+      "desc": "Lorem ipsum dolor, sit amet consectetur adipisicing.",
+      "price": 998,
+      "picture": "https://www.pngfind.com/pngs/m/162-1621689_cloud9-lcs-jersey-cloud-9-csgo-jersey-hd.png",
+      "id": 6
+    }
+  ]
+}
