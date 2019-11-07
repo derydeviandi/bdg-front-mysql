@@ -21,14 +21,15 @@ class Login extends Component {
                 password: _password
             }
         ).then(res => {
-            if(res.data.error){
+            console.log(res.data)
+            if (res.data.error) {
                 return alert(res.data.error)
             }
 
-            let {username, id} = res.data
+            let { username, id } = res.data
 
             // Simpan username dan id di localStorage
-            localStorage.setItem('user', JSON.stringify({username, id}))
+            localStorage.setItem('user', JSON.stringify({ username, id }))
 
             // Simpan username dan id ke redux
             // res.data = {_id, username, name, email, ...}
@@ -38,7 +39,7 @@ class Login extends Component {
             )
 
         }).catch(err => {
-            console.log({err})
+            console.log({ err })
 
         })
 
@@ -46,7 +47,7 @@ class Login extends Component {
 
     render() {
         // jika belum login, username di state kosong
-        if(!this.props._username){
+        if (!this.props._username) {
             // Tampilkan halaman login
             return (
                 <div className='col-6 mx-auto mt-5 card'>
@@ -58,12 +59,12 @@ class Login extends Component {
                             <div className='card-title'>
                                 <h4>Email</h4>
                             </div>
-                            <input className='form-control' ref={ (input) => {this.email = input} } type='email'/>
-    
+                            <input className='form-control' ref={(input) => { this.email = input }} type='email' />
+
                             <div className='card-title'>
                                 <h4>Password</h4>
                             </div>
-                            <input className='form-control' ref={ (input) => {this.password= input} } type='password'/>
+                            <input className='form-control' ref={(input) => { this.password = input }} type='password' />
                         </form>
                         <button onClick={this.onSignInClick} className='btn btn-outline-primary btn-block'>Sign In</button>
                     </div>
@@ -71,7 +72,7 @@ class Login extends Component {
             )
         } else {
             // Arahkan ke halaman home
-            return <Redirect to="/"/>
+            return <Redirect to="/" />
         }
 
     }
@@ -80,8 +81,8 @@ class Login extends Component {
 // Function yang akan mengakses data di redux state
 const mapStateToProps = (state) => {
     return {
-        _username : state.auth.username
+        _username: state.auth.username
     }
 }
 
-export default connect(mapStateToProps, {sendData})(Login)
+export default connect(mapStateToProps, { sendData })(Login)
