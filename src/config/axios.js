@@ -1,5 +1,5 @@
 import axios from 'axios'
 
 export default axios.create({
-    baseURL: 'http://localhost:2019'
+    baseURL: 'https://bdg-frontend-mysql.herokuapp.com/'
 })
