@@ -8,11 +8,6 @@ export class Home extends Component {
     state = {
         tasks: []
     }
-
-    componentDidMount() {
-        this.getTasks()
-    }
-
     getTasks = () => {
         axios.get(`/owntasks/${this.props.id}`)
             .then(res => {
@@ -23,6 +18,11 @@ export class Home extends Component {
 
             })
     }
+
+    componentDidMount() {
+        this.getTasks()
+    }
+
 
     addTask = () => {
         // Get data
@@ -75,23 +75,26 @@ export class Home extends Component {
     }
 
     renderList = () => {
-        return this.state.tasks.map(task => {
-            if (task.completed) {
+        if (this.props.tasks) {
+            return this.state.tasks.map(task => {
+                if (task.completed) {
+                    return (
+                        <li onDoubleClick={() => { this.deleteTask(task.id) }} className="list-group-item d-flex justify-content-between">
+                            <del>{task.description}</del>
+                            <button onClick={() => { this.cancelTask(task.id) }} className="btn btn-outline-danger">Cancel</button>
+                        </li>
+                    )
+                }
+
                 return (
                     <li onDoubleClick={() => { this.deleteTask(task.id) }} className="list-group-item d-flex justify-content-between">
-                        <del>{task.description}</del>
-                        <button onClick={() => { this.cancelTask(task.id) }} className="btn btn-outline-danger">Cancel</button>
+                        <span>{task.description}</span>
+                        <button onClick={() => { this.doneTask(task.id) }} className="btn btn-outline-primary">Done</button>
                     </li>
                 )
-            }
-
-            return (
-                <li onDoubleClick={() => { this.deleteTask(task.id) }} className="list-group-item d-flex justify-content-between">
-                    <span>{task.description}</span>
-                    <button onClick={() => { this.doneTask(task.id) }} className="btn btn-outline-primary">Done</button>
-                </li>
-            )
-        })
+            })
+        }
+        return 'loading...'
     }
 
     render() {
